@@ -5995,6 +5995,9 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
+rtn-app-detector@./RTNAppDetector:
+  version "0.0.1"
+
 rtn-calculator@./RTNCalculator:
   version "0.0.1"
 
