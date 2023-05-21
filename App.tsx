@@ -14,9 +14,13 @@ const App: () => JSX.Element = () => {
       <Button
         title="Compute"
         onPress={async () => {
-          const value = await RTNAppDetector?.isApp('Apple')
+          const value = await RTNAppDetector?.isAppInstalled(
+            'com.instagram.android',
+          )
 
-          console.log({ value })
+          const list = await RTNAppDetector?.allAppsInstalled()
+
+          console.log({ list, value })
           setResult(value ? 'True' : 'False')
         }}
       />
