@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { SafeAreaView, StatusBar, Text, Button } from 'react-native'
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator'
+import RTNAppDetector from 'rtn-app-detector/js/NativeAppDetector'
 
 const App: () => JSX.Element = () => {
-  const [result, setResult] = useState<number | null>(null)
+  const [result, setResult] = useState<String | null>('Not Initialized')
   return (
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
@@ -14,8 +14,10 @@ const App: () => JSX.Element = () => {
       <Button
         title="Compute"
         onPress={async () => {
-          const value = await RTNCalculator?.add(3, 7)
-          setResult(value ?? null)
+          const value = await RTNAppDetector?.isApp('Apple')
+
+          console.log({ value })
+          setResult(value ? 'True' : 'False')
         }}
       />
     </SafeAreaView>

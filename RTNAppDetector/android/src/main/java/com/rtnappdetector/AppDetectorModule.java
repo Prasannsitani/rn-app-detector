@@ -15,7 +15,7 @@ public class AppDetectorModule extends NativeAppDetectorSpec {
 
     public static String NAME = "RTNAppDetector";
 
-    CalculatorModule(ReactApplicationContext context) {
+    public AppDetectorModule(ReactApplicationContext context) {
         super(context);
     }
 
@@ -27,7 +27,7 @@ public class AppDetectorModule extends NativeAppDetectorSpec {
 
     @Override
     public void isApp(String name, Promise promise) {
-        if(name == 'Apple') {
+        if(name.equals("Apple")) {
             promise.resolve(true);
         } else {
             promise.resolve(false);
