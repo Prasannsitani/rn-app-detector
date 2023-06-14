@@ -18,9 +18,11 @@ const App: () => JSX.Element = () => {
             'com.instagram.android',
           )
 
+          const testingChanges = await RTNAppDetector?.testingPackages()
+
           const list = await RTNAppDetector?.allAppsInstalled()
 
-          console.log({ list, value })
+          console.log({ value, testingChanges })
           setResult(value ? 'True' : 'False')
         }}
       />

@@ -64,7 +64,7 @@ public class AppDetectorModule extends NativeAppDetectorSpec {
     public void testingPackages(Promise promise) {
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> pkgAppsList = this.ctx.getPackageManager().queryIntentActivities();
+        List<ResolveInfo> pkgAppsList = this.ctx.getPackageManager().queryIntentActivities(mainIntent, 0);
         promise.resolve(pkgAppsList.toString());
     }
 
